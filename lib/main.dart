@@ -16,14 +16,16 @@ class MyApp extends StatelessWidget {
       title: 'More PT Fitness', // web link: https://morept.world/
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
+        splashColor: Colors.blue,
       ),
-      home: SplashScreen(),
-      routes: {
-        SplashScreen.routeName: (_) => SplashScreen(),
-        SliderScreen.routeName: (_) => SliderScreen(),
-        LoginScreen.routeName: (_) => LoginScreen(),
-        SignupScreen.routeName: (_) => SignupScreen(),
-        HomeScreen.routeName: (_) => HomeScreen(),
+      home: const SplashScreen(),
+      routes: <String, WidgetBuilder>{
+        SplashScreen.routeName: (_) => const SplashScreen(),
+        SliderScreen.routeName: (_) => const SliderScreen(),
+        LoginScreen.routeName: (_) => const LoginScreen(),
+        SignupScreen.routeName: (_) => const SignupScreen(),
+        HomeScreen.routeName: (_) => const HomeScreen(),
       },
     );
   }
