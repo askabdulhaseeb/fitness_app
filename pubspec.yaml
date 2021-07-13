@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
 
   lint: ^1.5.3
+  carousel_slider: ^4.0.0
+
   cupertino_icons: ^1.0.2
 
 dev_dependencies:

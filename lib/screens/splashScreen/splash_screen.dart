@@ -1,8 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:morept_fitness_app/config/app_images.dart';
-import 'package:morept_fitness_app/screens/auth/loginScreen/login_screen.dart';
+import 'package:morept_fitness_app/screens/introSliderScreen/intro_slider_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushNamedAndRemoveUntil(
-          LoginScreen.routeName, (Route<dynamic> route) => false);
+          IntroSliderScreen.routeName, (Route<dynamic> route) => false);
     });
     super.initState();
   }
