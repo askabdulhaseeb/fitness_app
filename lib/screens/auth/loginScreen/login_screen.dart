@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:morept_fitness_app/config/app_images.dart';
-import 'package:morept_fitness_app/screens/auth/signupScreen/signup_screen.dart';
-import 'package:morept_fitness_app/screens/auth/widgets/valide_email_textformfield.dart';
-import 'package:morept_fitness_app/screens/auth/widgets/valide_password_textformfield.dart';
+import '../../../config/app_images.dart';
+import '../signupScreen/signup_screen.dart';
+import '../widgets/valide_email_textformfield.dart';
+import '../widgets/valide_password_textformfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

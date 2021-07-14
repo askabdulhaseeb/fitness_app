@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:morept_fitness_app/config/app_images.dart';
-import 'package:morept_fitness_app/screens/introSliderScreen/intro_slider_screen.dart';
+import '../../config/app_images.dart';
+import '../introSliderScreen/intro_slider_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:morept_fitness_app/screens/auth/loginScreen/login_screen.dart';
-import 'package:morept_fitness_app/screens/introSliderScreen/intro_slider_repo.dart';
+import '../auth/loginScreen/login_screen.dart';
+import '../introSliderScreen/intro_slider_repo.dart';
 
 class IntroSliderScreen extends StatefulWidget {
   const IntroSliderScreen({Key? key}) : super(key: key);
