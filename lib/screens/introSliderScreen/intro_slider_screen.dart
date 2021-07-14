@@ -61,95 +61,104 @@ class _IntroSliderScreenState extends State<IntroSliderScreen> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: CarouselSlider(
-        options: CarouselOptions(
-          autoPlay: true,
-          height: size.height,
-          viewportFraction: 1.0,
-        ),
-        carouselController: _controller,
-        items: _introSlider
-            .map(
-              (IntroSliderRepo slide) => Stack(
-                alignment: Alignment.center,
-                children: <Widget>[
-                  Container(
-                    height: size.height,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(slide.imageURL),
-                        fit: BoxFit.cover,
+      body: Stack(
+        children: <Widget>[
+          CarouselSlider(
+            options: CarouselOptions(
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 3),
+              height: size.height,
+              viewportFraction: 1.0,
+            ),
+            carouselController: _controller,
+            items: _introSlider
+                .map(
+                  (IntroSliderRepo slide) => Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Container(
+                        height: size.height,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(slide.imageURL),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: double.infinity,
-                    color: Colors.black54,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        SizedBox(
-                          height: size.height * 0.4,
-                        ),
-                        Text(
-                          slide.title,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 32,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          slide.description,
-                          style: const TextStyle(
-                            color: Colors.white70,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w300,
-                            wordSpacing: 3,
-                            letterSpacing: 2,
-                          ),
-                        ),
-                        const Spacer(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            TextButton(
-                              onPressed: () => _controller.previousPage(),
-                              child: const Text(
-                                'Previous',
+                      Container(
+                        height: MediaQuery.of(context).size.height,
+                        width: double.infinity,
+                        color: Colors.black54,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 14),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SizedBox(
+                              height: size.height * 0.4,
+                            ),
+                            Text(
+                              slide.title,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 32,
+                                fontWeight: FontWeight.w900,
                               ),
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context).pushNamedAndRemoveUntil(
-                                    LoginScreen.routeName,
-                                    (Route<dynamic> route) => false);
-                              },
-                              child: const Text(
-                                'Done',
+                            const SizedBox(height: 20),
+                            Text(
+                              slide.description,
+                              style: const TextStyle(
+                                color: Colors.white70,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w300,
+                                wordSpacing: 3,
+                                letterSpacing: 2,
                               ),
                             ),
-                            TextButton(
-                              onPressed: () => _controller.nextPage(),
-                              child: const Text(
-                                'Next',
-                              ),
-                            ),
+                            const Spacer(),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            )
-            .toList(),
+                )
+                .toList(),
+          ),
+          Positioned(
+            bottom: 10,
+            left: 10,
+            right: 10,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                TextButton(
+                  onPressed: () => _controller.previousPage(),
+                  child: const Text(
+                    'Previous',
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        LoginScreen.routeName, (Route<dynamic> route) => false);
+                  },
+                  child: const Text(
+                    'Done',
+                  ),
+                ),
+                TextButton(
+                  onPressed: () => _controller.nextPage(),
+                  child: const Text(
+                    'Next',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
