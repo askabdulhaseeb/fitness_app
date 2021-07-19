@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:morept_fitness_app/screens/basicQuestionScreens/questionIntroScreen/question_intro_screen.dart';
 import '../../../config/app_images.dart';
 import '../widgets/valide_email_textformfield.dart';
 import '../widgets/valide_name_textformfield.dart';
@@ -80,6 +81,7 @@ class SignupButton extends StatelessWidget {
           print(_name.text);
           print(_email.text);
           print(_password.text);
+          Navigator.of(context).pushNamed(QuestionIntroScreen.routeName);
         }
       },
       child: Container(
